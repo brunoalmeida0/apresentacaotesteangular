@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 style="text-align: center; font-size: 30px; margin-top: 10px">Salvar novo remédio</h1>
+  <form [formGroup]="salvarFormGroup">
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <mat-label>Fabricante</mat-label>
+        <input matInput formControlName="fabricante">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <input formControlName="validade" matInput [matDatepicker]="picker" placeholder="Validade">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <mat-label>Quantidade no Estoque</mat-label>
+        <input matInput formControlName="quantidadeEstoque">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <mat-label>Tarja Preta</mat-label>
+        <mat-select formControlName="tarjaPreta">
+          <mat-option [value]="true">Sim</mat-option>
+          <mat-option [value]="false">Não</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-md-12">
+        <mat-label>Preço</mat-label>
+        <input matInput formControlName="preco">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <button (click)="salvarRemedio()" mat-raised-button color="primary">Salvar</button>
+      <button style="margin-left: 10px" (click)="voltar()" mat-raised-button>Voltar</button>
+    </div>
+
+  </form>
+</div>

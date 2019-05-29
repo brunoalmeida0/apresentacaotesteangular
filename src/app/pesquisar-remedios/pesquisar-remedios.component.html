@@ -1,0 +1,64 @@
+<div class="container"  style="margin-bottom: 30px;">
+  <h1 style="text-align: center; font-size: 30px; margin-top: 10px">Remédios em estoque</h1>
+  <form [formGroup]="buscarFormGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Pesquisar Remédio</mat-label>
+      <input matInput formControlName="remedioFormControl">
+    </mat-form-field>
+    <button style="margin-left: 10px; margin-top: -10px" (click)="pesquisarRemedio()" mat-raised-button
+      color="primary">Pesquisar</button>
+    <button style="margin-left: 10px; margin-top: -10px" (click)="limparPesquisa()" mat-raised-button>Limpar
+      Pesquisa</button>
+      <button style="margin-left: 10px; margin-top: -10px" (click)="criarRemedio()" mat-raised-button
+      color="primary">Criar</button>
+  </form>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 20px">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fabricante">
+      <th mat-header-cell *matHeaderCellDef> Fabricante </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.fabricante}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="validade">
+      <th mat-header-cell *matHeaderCellDef> Validade </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.validade.toLocaleString()}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantidadeEstoque">
+      <th mat-header-cell *matHeaderCellDef> Qtd. Estoque </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.quantidadeEstoque}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tarjaPreta">
+      <th mat-header-cell *matHeaderCellDef> Tarja Preta </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.tarjaPreta}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="preco">
+      <th mat-header-cell *matHeaderCellDef> Preço </th>
+      <td mat-cell *matCellDef="let remedio"> {{remedio.preco}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th style="text-align: center" mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let remedio">
+        <div style="text-align: center">          
+          <button mat-button (click)="editarRemedio(remedio)" matTooltip="Editar">
+            <mat-icon class="icon">edit</mat-icon>
+          </button>
+          <button mat-button (click)="removerRemedio(remedio)" matTooltip="Ativar">
+            <mat-icon class="icon">delete</mat-icon>
+          </button>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
