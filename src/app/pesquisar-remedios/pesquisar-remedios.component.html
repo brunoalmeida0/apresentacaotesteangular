@@ -3,13 +3,13 @@
   <form [formGroup]="buscarFormGroup">
     <mat-form-field appearance="outline">
       <mat-label>Pesquisar Remédio</mat-label>
-      <input matInput formControlName="remedioFormControl">
+      <input id="inputPesquisa" matInput formControlName="remedioFormControl">
     </mat-form-field>
-    <button style="margin-left: 10px; margin-top: -10px" (click)="pesquisarRemedio()" mat-raised-button
+    <button id="btnPesquisa" style="margin-left: 10px; margin-top: -10px" (click)="pesquisarRemedio()" mat-raised-button
       color="primary">Pesquisar</button>
-    <button style="margin-left: 10px; margin-top: -10px" (click)="limparPesquisa()" mat-raised-button>Limpar
+    <button id="btnLimparPesquisa" style="margin-left: 10px; margin-top: -10px" (click)="limparPesquisa()" mat-raised-button>Limpar
       Pesquisa</button>
-      <button style="margin-left: 10px; margin-top: -10px" (click)="criarRemedio()" mat-raised-button
+      <button id="btnCriarRemedio" style="margin-left: 10px; margin-top: -10px" (click)="criarRemedio()" mat-raised-button
       color="primary">Criar</button>
   </form>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 20px">

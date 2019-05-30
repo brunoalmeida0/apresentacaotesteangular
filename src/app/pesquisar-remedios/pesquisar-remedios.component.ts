@@ -58,15 +58,6 @@ export class PesquisarRemediosComponent implements OnInit {
       }, err => console.error(err));
   }
 
-  editarRemedio(remedio: Remedio) {
-    this.router.navigate(['editarRemedios']);
-    // this.remediosService.editarRemedio(remedio)
-    // .subscribe(data => {
-    //   console.log(data)
-    //   this.getRemedios();
-    // }, err => console.log(err));
-  }
-
   criarRemedio(){
     this.router.navigate(['salvarRemedios']);
   }

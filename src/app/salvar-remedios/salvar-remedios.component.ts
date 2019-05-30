@@ -13,7 +13,7 @@ export class SalvarRemediosComponent implements OnInit {
 
   salvarFormGroup: FormGroup;
   tarjaPreta: boolean;
-  
+  remedioSalvo: Remedio;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -34,6 +34,7 @@ export class SalvarRemediosComponent implements OnInit {
 
   salvarRemedio(){
     let remedio = new Remedio();
+    this.remedioSalvo = new Remedio();
     if(this.salvarFormGroup.get('validade').value < new Date()){
       console.log("Não é possível salvar uma remédio já vencido.")
       return
@@ -51,8 +52,11 @@ export class SalvarRemediosComponent implements OnInit {
     if(remedio.tarjaPreta){
       remedio.preco = parseFloat(remedio.preco.toString()) + parseFloat('100.0');
     }    
-    console.log(remedio)
-    this.remediosService.salvarRemedio(remedio);
+    this.remediosService.salvarRemedio(remedio)
+      .subscribe(data => {
+        this.voltar();
+        this.remedioSalvo = data;
+      },err => console.log(err));
   }
 
   voltar(){

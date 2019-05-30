@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PesquisarRemediosComponent } from './pesquisar-remedios/pesquisar-remedios.component';
 import { SalvarRemediosComponent } from './salvar-remedios/salvar-remedios.component';
-import { EditarRemediosComponent } from './editar-remedios/editar-remedios.component';
 import {MatTableModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, DateAdapter} from '@angular/material';
 import { RemediosService } from './services/remedios-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -18,8 +17,7 @@ import { LocalStorageService } from 'angular-web-storage';
   declarations: [
     AppComponent,
     PesquisarRemediosComponent,
-    SalvarRemediosComponent,
-    EditarRemediosComponent
+    SalvarRemediosComponent
   ],
   imports: [
     BrowserModule,
